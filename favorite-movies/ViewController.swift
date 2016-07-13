@@ -58,5 +58,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return movies.count
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showMovieDetail" {
+            let controller = segue.destinationViewController as? ShowMovieDetailVC
+            let indexPath = self.tableView.indexPathForSelectedRow
+            controller!.selectedMovie = movies[indexPath!.row]
+        }
+    }
+    
 }
 

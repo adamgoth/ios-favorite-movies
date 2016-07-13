@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Movies-->
         <scene sceneID="z4D-4l-NAy">
             <objects>
                 <viewController id="tRm-tt-L8C" customClass="ViewController" customModule="favorite_movies" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,6 +69,7 @@
                                             <outlet property="movieDescription" destination="qq5-Vi-Tvn" id="enF-Xz-lb4"/>
                                             <outlet property="movieImg" destination="CnT-tf-mcD" id="xYb-Gy-T1Z"/>
                                             <outlet property="movieTitle" destination="AVt-cj-oU7" id="UTk-mw-ppP"/>
+                                            <segue destination="YWZ-fj-zI0" kind="show" identifier="showMovieDetail" id="aPb-pU-9fV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -82,9 +83,9 @@
                             <constraint firstItem="iBX-RA-QAO" firstAttribute="top" secondItem="jbA-CP-iHu" secondAttribute="bottom" id="yW5-Tx-Hmx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hoI-rw-7Sc">
+                    <navigationItem key="navigationItem" title="My Movies" id="hoI-rw-7Sc">
                         <barButtonItem key="rightBarButtonItem" title="+ New" id="TBu-7K-qBV">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Bjz-uT-L5Q" kind="show" id="hib-78-gbd"/>
                             </connections>
@@ -197,6 +198,80 @@
             </objects>
             <point key="canvasLocation" x="2403" y="95"/>
         </scene>
+        <!--Show Movie DetailVC-->
+        <scene sceneID="SE6-3K-dWD">
+            <objects>
+                <viewController id="YWZ-fj-zI0" customClass="ShowMovieDetailVC" customModule="favorite_movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a3S-Ah-oRC"/>
+                        <viewControllerLayoutGuide type="bottom" id="jLe-XX-rlk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BOE-pm-7sl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyb-6L-w4R">
+                                <rect key="frame" x="20" y="83" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYj-Px-iYG">
+                                <rect key="frame" x="20" y="112" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA8-RC-KyJ">
+                                <rect key="frame" x="20" y="170" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZwK-4w-Ckm">
+                                <rect key="frame" x="180" y="224" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="VG4-0K-ejT"/>
+                                    <constraint firstAttribute="height" constant="240" id="m7L-AP-CIE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDB URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPZ-oZ-9zI">
+                                <rect key="frame" x="20" y="141" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uA8-RC-KyJ" firstAttribute="trailing" secondItem="BOE-pm-7sl" secondAttribute="trailingMargin" id="7Zh-jk-SoX"/>
+                            <constraint firstItem="Kyb-6L-w4R" firstAttribute="leading" secondItem="BOE-pm-7sl" secondAttribute="leadingMargin" id="BJm-rC-evH"/>
+                            <constraint firstItem="MYj-Px-iYG" firstAttribute="leading" secondItem="BOE-pm-7sl" secondAttribute="leadingMargin" id="Q85-Et-bk7"/>
+                            <constraint firstItem="XPZ-oZ-9zI" firstAttribute="leading" secondItem="BOE-pm-7sl" secondAttribute="leadingMargin" id="QVs-3o-QyS"/>
+                            <constraint firstItem="MYj-Px-iYG" firstAttribute="top" secondItem="Kyb-6L-w4R" secondAttribute="bottom" constant="8" id="Vdr-9n-muy"/>
+                            <constraint firstItem="Kyb-6L-w4R" firstAttribute="top" secondItem="a3S-Ah-oRC" secondAttribute="bottom" constant="19" id="WdH-kN-Qgx"/>
+                            <constraint firstItem="ZwK-4w-Ckm" firstAttribute="centerX" secondItem="BOE-pm-7sl" secondAttribute="centerX" id="Zl4-Ak-y7z"/>
+                            <constraint firstItem="Kyb-6L-w4R" firstAttribute="trailing" secondItem="BOE-pm-7sl" secondAttribute="trailingMargin" id="aCm-np-y8B"/>
+                            <constraint firstItem="MYj-Px-iYG" firstAttribute="trailing" secondItem="BOE-pm-7sl" secondAttribute="trailingMargin" id="bXJ-pO-AeY"/>
+                            <constraint firstItem="XPZ-oZ-9zI" firstAttribute="trailing" secondItem="BOE-pm-7sl" secondAttribute="trailingMargin" id="eMX-RU-deC"/>
+                            <constraint firstItem="uA8-RC-KyJ" firstAttribute="leading" secondItem="BOE-pm-7sl" secondAttribute="leadingMargin" id="fiF-8y-kRs"/>
+                            <constraint firstItem="ZwK-4w-Ckm" firstAttribute="top" secondItem="uA8-RC-KyJ" secondAttribute="bottom" constant="33" id="g3W-Av-u2A"/>
+                            <constraint firstItem="uA8-RC-KyJ" firstAttribute="top" secondItem="XPZ-oZ-9zI" secondAttribute="bottom" constant="8" id="je8-gA-LD7"/>
+                            <constraint firstItem="XPZ-oZ-9zI" firstAttribute="top" secondItem="MYj-Px-iYG" secondAttribute="bottom" constant="8" id="xsu-7I-VWo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imdbUrl" destination="XPZ-oZ-9zI" id="nzC-zy-RMQ"/>
+                        <outlet property="movieDesc" destination="MYj-Px-iYG" id="WyT-Fn-xOF"/>
+                        <outlet property="movieImg" destination="ZwK-4w-Ckm" id="JQP-K6-Cci"/>
+                        <outlet property="moviePlot" destination="uA8-RC-KyJ" id="wn6-fz-c9L"/>
+                        <outlet property="movieTitle" destination="Kyb-6L-w4R" id="wNu-BP-WY6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7c-Ue-cFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2403" y="962"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rF4-Wy-faZ">
             <objects>
@@ -205,7 +280,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0qV-BG-YAh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.5871365534723707" green="0.89516584790460496" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
